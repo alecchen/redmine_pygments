@@ -16,4 +16,3 @@ module Redmine
     end
   end
 end
-
