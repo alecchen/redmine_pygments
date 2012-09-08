@@ -18,10 +18,6 @@ get the latest [redmine_pygments] from github
 
 then restart your redmine
 
-## Limitation
-
-currently only works for source code `<pre><code> ... </code></pre>` block
-
 ## Compatibility
 
 tested on [Redmine][redmine] 2.0.3
