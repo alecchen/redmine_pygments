@@ -1,3 +1,6 @@
+require 'redmine'
+require 'coderay_patch'
+
 Redmine::Plugin.register :redmine_pygments do
   name 'Redmine Pygments plugin'
   author 'Alec Chen'
