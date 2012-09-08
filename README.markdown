@@ -16,7 +16,7 @@ get the latest [redmine_pygments] from github
 
 `git clone https://github.com/alecchen/redmine_pygments.git <your_redmine_dir>/plugins`
 
-then restart your [redmine][redmine]
+then restart your redmine
 
 ## Limitation
 
