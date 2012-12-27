@@ -7,7 +7,11 @@ module Redmine
 
       class << self
         def highlight_by_filename(text, filename)
-          language = Pygments.lexer_name_for(:filename => filename)
+          begin
+            language = Pygments.lexer_name_for(:filename => filename)
+          rescue
+            language = 'text'
+          end
           language = 'perl' if language == 'prolog'
           language ? highlight_by_language(text, language, false) : ERB::Util.h(text)
         end
