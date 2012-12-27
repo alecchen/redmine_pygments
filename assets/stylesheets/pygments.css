@@ -1,3 +1,7 @@
+table.filecontent th.line-num { border-top:none }
+#L1, #L1 + td.line-code { padding-top:10px }
+.highlight { padding-left:10px; }
+.syntaxhl > tbody > tr:hover, .syntaxhl > tbody > tr:hover .highlight { background-color:#e5e5e5 }
 .highlight .lineno {
     padding: 2px 4px 2px 4px; background-color: #eee; margin:0px 5px 0px 0px;
     user-select: none;
