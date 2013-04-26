@@ -9,3 +9,8 @@ Redmine::Plugin.register :redmine_pygments do
   url 'https://github.com/alecchen/redmine_pygments'
   author_url 'http://about.me/alecchen'
 end
+
+# CSS für Projekt Übersicht
+class FormerBaseHtml < Redmine::Hook::ViewListener
+  render_on :view_layouts_base_html_head, :partial => 'pygments_css'
+end
