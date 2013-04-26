@@ -1,4 +1,5 @@
 require_dependency 'redmine/syntax_highlighting'
+require 'nokogiri'
 
 module Redmine
   module SyntaxHighlighting
@@ -18,12 +19,13 @@ module Redmine
 
         def highlight_by_language(text, language, with_lineno=true)
           options = with_lineno ? {:linenos => 'inline'} : {}
-          result = Pygments.highlight(text, :lexer => language, :formatter => 'html', :options => options)
-          result.gsub!(/^<div class="highlight"><pre>/, '')
-          result.gsub!(/<\/pre>\n<\/div>\n$/, '</span>')
-          result.gsub!(/^/m, '<span class="highlight">')
-          result.gsub!(/$/m, '</span>')
-          result
+          output = Nokogiri::HTML(Pygments.highlight(text, :lexer => language, :formatter => 'html', :options => options))
+          # Get first <pre> and rewrite to div
+          highlighted_code = output.xpath('//pre')[0]
+          highlighted_code.name = 'div'
+          highlighted_code.set_attribute("class", "highlight")
+          # Return rewrite html
+          highlighted_code.to_s
         end
       end
     end
